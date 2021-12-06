@@ -66,7 +66,7 @@ func main() {
 func handleError(w http.ResponseWriter, errMsg string, statusCode int) {
 	response := struct {
 		Err string
-	}{Err: fmt.Sprintf("%s", errMsg)}
+	}{Err: fmt.Sprintf("%s\n", errMsg)}
 	responseJSON, _ := json.Marshal(response)
 	w.Header().Set(ContentTypeHeaderKey, ContentTypeHeaderValueJson)
 	w.WriteHeader(statusCode)
